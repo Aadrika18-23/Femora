@@ -1,0 +1,301 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nurture | Health Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#e2d8d9",
+                    "on-secondary-container": "#590025",
+                    "tertiary-fixed": "#e6e0ef",
+                    "secondary-fixed": "#ffd9df",
+                    "on-secondary-fixed-variant": "#8f003f",
+                    "primary": "#805062",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#fd4e87",
+                    "on-background": "#1f1a1c",
+                    "surface-bright": "#fff8f8",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#65394b",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#d4c2c6",
+                    "inverse-on-surface": "#f9eef0",
+                    "inverse-surface": "#342f30",
+                    "surface-variant": "#eae0e1",
+                    "error-container": "#ffdad6",
+                    "outline": "#827377",
+                    "on-tertiary-fixed": "#1c1a25",
+                    "tertiary": "#605d69",
+                    "on-primary": "#ffffff",
+                    "surface": "#fff8f8",
+                    "on-primary-container": "#76485a",
+                    "on-secondary-fixed": "#3f0018",
+                    "on-tertiary-container": "#575460",
+                    "surface-container": "#f6ebed",
+                    "inverse-primary": "#f2b6cb",
+                    "tertiary-container": "#cfc9d8",
+                    "secondary": "#b80f55",
+                    "on-tertiary-fixed-variant": "#484551",
+                    "on-surface": "#1f1a1c",
+                    "surface-container-high": "#f0e6e7",
+                    "primary-fixed": "#ffd9e4",
+                    "surface-container-highest": "#eae0e1",
+                    "tertiary-fixed-dim": "#c9c4d3",
+                    "on-primary-fixed": "#330f1f",
+                    "on-surface-variant": "#504447",
+                    "background": "#fff8f8",
+                    "primary-container": "#f8bbd0",
+                    "secondary-fixed-dim": "#ffb1c2",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#805062",
+                    "surface-container-low": "#fcf1f2",
+                    "primary-fixed-dim": "#f2b6cb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "container-padding-mobile": "16px",
+                    "stack-lg": "24px",
+                    "stack-md": "16px",
+                    "container-padding-desktop": "32px",
+                    "unit": "4px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "title-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fff8f8; /* Soft pink-tinted surface */
+            -webkit-tap-highlight-color: transparent;
+        }
+        .soft-glow {
+            box-shadow: 0 4px 20px rgba(248, 187, 208, 0.3);
+        }
+        .glass-header {
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 248, 248, 0.8);
+        }
+        .pill-button {
+            border-radius: 9999px;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .pill-button:active {
+            transform: scale(0.95);
+        }
+        .progress-ring {
+            transition: stroke-dashoffset 0.8s ease-in-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface mb-24">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 glass-header shadow-sm">
+<div class="flex justify-between items-center px-gutter h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-3"><button class="material-symbols-outlined text-primary hover:bg-primary-container/20 rounded-full p-1 transition-all" aria-label="Go back">arrow_back</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A soft-focus, high-quality portrait of a smiling woman with a natural aesthetic. The lighting is warm and bright, mirroring a premium healthcare environment. The background is a clean, minimalist studio setting with subtle pink and peach tones to match the Nurture brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh-8HwYDvFvePNpzjEfxsPIQb6B1T5VpxfWCQ8LZbbPFKaLImVoR5WXz4pP2hTzmv0gQdV5cPqrKnUvqfXn2T1ospYOABUA2jY6SNy0heZv970knHE52h6e-oXSaMNud5GWcNM39P4iX0l_p6qLQT0W904RbYopt_-nOvBQaU-Guoryp1l9RiP3z-m6L-qODNB-HndTzyBc1sdLrZiSy5_3C65X2LKn9Gfp7Ejpgy81XTNat15qhaKfp1PijGJUpmAB3Piqw7IRiY">
+</div>
+<h1 class="font-display-lg text-title-lg font-bold text-primary">Nurture</h1>
+</div>
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity" aria-label="Notifications">notifications</button>
+</div>
+</header>
+<main class="pt-20 px-gutter w-full max-w-screen-xl mx-auto">
+<!-- Greeting Section -->
+<section class="mt-stack-lg mb-stack-lg animate-fade-in">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Good morning, Sarah</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">You're in your follicular phase. Energy levels might be rising!</p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-md">
+<!-- Cycle Tracker Card (Large) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-lg p-stack-lg soft-glow flex flex-col md:flex-row items-center gap-stack-lg relative overflow-hidden transition-all duration-700 opacity-0 translate-y-4">
+<!-- Background Subtle Gradient -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container/20 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+<div class="relative w-48 h-48 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-secondary progress-ring" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502.65" stroke-dashoffset="150" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-lg text-4xl text-on-secondary-container">Day 12</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Follicular</span>
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Cycle Status</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ovulation is expected in <span class="text-secondary font-bold">2 days</span>. It's a great time for high-intensity movement.</p>
+</div>
+<div class="flex gap-stack-sm flex-wrap">
+<span class="px-4 py-1.5 bg-secondary-container/20 text-on-secondary-container font-label-md text-label-md rounded-full border border-secondary-container/30">Low Symptoms</span>
+<span class="px-4 py-1.5 bg-tertiary-container/30 text-on-tertiary-container font-label-md text-label-md rounded-full border border-tertiary-container/50">High Energy</span>
+</div>
+<button class="pill-button w-full md:w-auto px-6 py-3 bg-secondary text-on-secondary flex items-center justify-center gap-2 font-label-md text-label-md rounded-full transition-all">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+                        Log Symptoms
+                    </button>
+</div>
+</div>
+<!-- Health Alerts / Checkups (Side Column) -->
+<div class="md:col-span-4 bg-primary-container/20 rounded-lg p-stack-md border border-primary-container/30 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-stack-sm">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<h3 class="font-title-lg text-title-lg text-on-primary-container">Next Checkup</h3>
+</div>
+<div class="bg-surface-container-lowest rounded-md p-stack-sm mb-4 soft-glow transition-all duration-700 opacity-0 translate-y-4">
+<p class="font-label-md text-label-md text-secondary font-bold">Tuesday, Oct 24</p>
+<p class="font-body-md text-body-md text-on-surface">Annual Wellness Exam</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Dr. Aris Thorne • 10:30 AM</p>
+</div>
+</div>
+<div class="bg-error-container/40 p-stack-sm rounded-md flex items-start gap-3 border border-error-container/60">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">error</span>
+<div>
+<p class="font-label-md text-label-md text-on-error-container font-bold">Action Needed</p>
+<p class="font-body-md text-body-md text-on-error-container">Flu Vaccination due this month.</p>
+</div>
+</div>
+</div>
+<!-- Wellness Goals Section -->
+<div class="md:col-span-12 mt-stack-md animate-fade-in">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-stack-sm">Wellness Progress</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-stack-md">
+<!-- Hydration Card -->
+<div class="bg-surface-container-lowest p-stack-md rounded-lg soft-glow flex items-center gap-stack-md transition-all duration-700 opacity-0 translate-y-4">
+<div class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 border border-blue-100">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="font-label-md text-label-md text-on-surface-variant font-bold">Hydration</p>
+<p class="font-label-md text-label-md text-blue-600">75%</p>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-blue-400 rounded-full" style="width: 75%"></div>
+</div>
+<p class="font-label-md text-[10px] text-on-surface-variant mt-1">1.5L of 2.0L goal</p>
+</div>
+</div>
+<!-- Sleep Card -->
+<div class="bg-surface-container-lowest p-stack-md rounded-lg soft-glow flex items-center gap-stack-md transition-all duration-700 opacity-0 translate-y-4">
+<div class="w-14 h-14 rounded-full bg-purple-50 flex items-center justify-center text-purple-500 border border-purple-100">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="font-label-md text-label-md text-on-surface-variant font-bold">Sleep</p>
+<p class="font-label-md text-label-md text-purple-600">8.2h</p>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-purple-400 rounded-full" style="width: 90%"></div>
+</div>
+<p class="font-label-md text-[10px] text-on-surface-variant mt-1">Consistency Score: Optimal</p>
+</div>
+</div>
+<!-- Mental Wellness Card -->
+<div class="bg-surface-container-lowest p-stack-md rounded-lg soft-glow flex items-center gap-stack-md transition-all duration-700 opacity-0 translate-y-4">
+<div class="w-14 h-14 rounded-full bg-pink-50 flex items-center justify-center text-secondary border border-pink-100">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">self_improvement</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="font-label-md text-label-md text-on-surface-variant font-bold">Mindfulness</p>
+<p class="font-label-md text-label-md text-secondary">10m</p>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full" style="width: 40%"></div>
+</div>
+<p class="font-label-md text-[10px] text-on-surface-variant mt-1">Daily streak: 4 days</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Insights / Library (Bento Item) -->
+<div class="md:col-span-12 lg:col-span-12 mt-stack-md animate-fade-in">
+<div class="bg-tertiary-fixed rounded-lg p-stack-lg flex flex-col md:flex-row items-center gap-stack-lg">
+<div class="w-full md:w-1/3 aspect-video rounded-md overflow-hidden soft-glow transition-all duration-700 opacity-0 translate-y-4">
+<img class="w-full h-full object-cover" data-alt="A serene, soft-focus landscape image of a peaceful garden at dawn, with gentle mist and soft morning light hitting blooming flowers. The colors are muted lavenders, sage greens, and soft pinks, designed to evoke a sense of mental calm and professional healthcare aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_4kvur1BRkOr4y5Xtzyy6SXxei72cK1QcR4e3-zQQGX6xOjc3aikQ9YI6XORH-PwSMqoz4Z_oouiwoyRbPyc4uutKEjG8zdnel_IOSx1unfGRzTHrvwe8dMQ4IktbgSxn2_EMKxwNHb97mwAcrE9GdRk8ZLdW7bpfd45YT2zMz8TojKZekE9KWmKxrj63Yq2wh2Z9Mg8QSLyYv46lIT3-G7JGLoeGZsAcOaim6jROWuXicDI-yLu7YtEFE5G5UU2dk-Lzkf4pUpU">
+</div>
+<div class="flex-1 text-center md:text-left">
+<h4 class="font-title-lg text-title-lg text-on-tertiary-fixed mb-2">Today's Focus: Restorative Sleep</h4>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant mb-4">Learn how your cycle impacts your REM cycles and what you can do to improve rest during this phase.</p>
+<button class="pill-button px-6 py-2 border border-on-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md hover:bg-on-tertiary-fixed hover:text-white transition-all">Read Insight</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(248,187,208,0.3)] rounded-t-lg">
+<div class="flex justify-around items-center px-4 py-3 pb-safe max-w-screen-xl mx-auto"><div class="flex justify-around items-center px-4 py-3 pb-safe max-w-screen-xl mx-auto"><div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1.5 active:scale-90 transition-transform duration-200 cursor-pointer" aria-label="Home"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span><span class="font-label-md text-label-md">Home</span></div><div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-secondary-container/50 rounded-full px-4 py-1.5 active:scale-90 transition-transform duration-200 cursor-pointer" aria-label="Eera AI"><span class="material-symbols-outlined">smart_toy</span><span class="font-label-md text-label-md">Eera AI</span></div><div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-secondary-container/50 rounded-full px-4 py-1.5 active:scale-90 transition-transform duration-200 cursor-pointer" aria-label="Community"><span class="material-symbols-outlined">group</span><span class="font-label-md text-label-md">Community</span></div><div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-secondary-container/50 rounded-full px-4 py-1.5 active:scale-90 transition-transform duration-200 cursor-pointer" aria-label="Consultation"><span class="material-symbols-outlined">medical_services</span><span class="font-label-md text-label-md">Consult</span></div><div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-secondary-container/50 rounded-full px-4 py-1.5 active:scale-90 transition-transform duration-200 cursor-pointer" aria-label="Profile"><span class="material-symbols-outlined">person</span><span class="font-label-md text-label-md">Profile</span></div></div></div>
+</nav>
+<!-- Floating Action Button - Only for Home/Main Dashboard -->
+<div class="fixed bottom-24 right-6 z-40"><button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center pill-button active:scale-95 transition-all" aria-label="Ask Eera AI"><span class="material-symbols-outlined text-3xl">smart_toy</span></button></div>
+<script>
+        // Micro-interactions for progress bar animations on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const rings = document.querySelectorAll('.progress-ring');
+            rings.forEach(ring => {
+                // Trigger transition by resetting dashoffset if needed (handled by CSS here)
+            });
+            
+            // Intersection observer for fade-in animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.soft-glow').forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+                observer.observe(el);
+            });
+        });
+    </script>
+
+
+</body></html>

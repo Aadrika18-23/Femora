@@ -1,0 +1,375 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nurture | Private Community</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#e2d8d9",
+                    "on-secondary-container": "#590025",
+                    "tertiary-fixed": "#e6e0ef",
+                    "secondary-fixed": "#ffd9df",
+                    "on-secondary-fixed-variant": "#8f003f",
+                    "primary": "#805062",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#fd4e87",
+                    "on-background": "#1f1a1c",
+                    "surface-bright": "#fff8f8",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#65394b",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#d4c2c6",
+                    "inverse-on-surface": "#f9eef0",
+                    "inverse-surface": "#342f30",
+                    "surface-variant": "#eae0e1",
+                    "error-container": "#ffdad6",
+                    "outline": "#827377",
+                    "on-tertiary-fixed": "#1c1a25",
+                    "tertiary": "#605d69",
+                    "on-primary": "#ffffff",
+                    "surface": "#fff8f8",
+                    "on-primary-container": "#76485a",
+                    "on-secondary-fixed": "#3f0018",
+                    "on-tertiary-container": "#575460",
+                    "surface-container": "#f6ebed",
+                    "inverse-primary": "#f2b6cb",
+                    "tertiary-container": "#cfc9d8",
+                    "secondary": "#b80f55",
+                    "on-tertiary-fixed-variant": "#484551",
+                    "on-surface": "#1f1a1c",
+                    "surface-container-high": "#f0e6e7",
+                    "primary-fixed": "#ffd9e4",
+                    "surface-container-highest": "#eae0e1",
+                    "tertiary-fixed-dim": "#c9c4d3",
+                    "on-primary-fixed": "#330f1f",
+                    "on-surface-variant": "#504447",
+                    "background": "#fff8f8",
+                    "primary-container": "#f8bbd0",
+                    "secondary-fixed-dim": "#ffb1c2",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#805062",
+                    "surface-container-low": "#fcf1f2",
+                    "primary-fixed-dim": "#f2b6cb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "container-padding-mobile": "16px",
+                    "stack-lg": "24px",
+                    "stack-md": "16px",
+                    "container-padding-desktop": "32px",
+                    "unit": "4px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "title-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 248, 250, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 20px rgba(248, 187, 208, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #f8bbd0;
+            border-radius: 10px;
+        }
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24 lg:pb-0">
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl shadow-sm h-16">
+<div class="flex justify-between items-center px-gutter h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A serene portrait of a diverse woman with a calm expression, softly lit with warm pink tones to match the Nurture brand aesthetic. The photography style is clinical yet empathetic, with a shallow depth of field and high-key brightness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXlqt5ro6nN7ND6CajvegU4wLTNqP3jX3gzAqUu8-sk5Du_agHaI4qUNLlFR4LqgDlUvdUCVHxTyf3TaPw-NWlO4cfOr5Xf7O1-nvi6cPCSnO086wdU98iCL-LJ86uNOiA8Z4cww4ndWtUyLLvt8zKTlgF6dJsHvzhvqEepmDX5c1ccbMELq03o4s2tcptAtNi7krELSRkbO2XLhGvnkE2mXHkSiDw0aW41Ih2kWQ0vPuJfC_-M-i4yfwMopIPkPHH4tidqelEvhA">
+</div>
+<h1 class="font-display-lg text-title-lg font-bold text-primary dark:text-primary-fixed-dim">Nurture</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity">notifications</button>
+</div>
+</div>
+</header>
+<main class="pt-20 px-4 lg:px-container-padding-desktop max-w-screen-xl mx-auto">
+<!-- Welcome Hero & Category Filters -->
+<section class="mt-8 space-y-stack-lg">
+<div class="space-y-2">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Community Space</h2>
+<p class="text-on-surface-variant font-body-lg">Connect anonymously in a secure, clinical-grade private environment.</p>
+</div>
+<!-- Horizontal Category Chips -->
+<div class="flex gap-stack-sm overflow-x-auto pb-2 custom-scrollbar no-scrollbar">
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md whitespace-nowrap active:scale-95 transition-transform">All Topics</button>
+<button class="bg-surface-container text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap hover:bg-primary-container/20 transition-colors">Postpartum</button>
+<button class="bg-surface-container text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap hover:bg-primary-container/20 transition-colors">Pregnancy Care</button>
+<button class="bg-surface-container text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap hover:bg-primary-container/20 transition-colors">Mental Health</button>
+<button class="bg-surface-container text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap hover:bg-primary-container/20 transition-colors">Fertility</button>
+<button class="bg-surface-container text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap hover:bg-primary-container/20 transition-colors">Nutrition</button>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<section class="mt-stack-lg grid grid-cols-1 lg:grid-cols-12 gap-stack-lg">
+<!-- Trending & Pinned Discussions (Sidebar on Desktop, Top on Mobile) -->
+<div class="lg:col-span-4 space-y-stack-lg order-2 lg:order-1">
+<div class="glass-card rounded-lg p-stack-md">
+<h3 class="font-title-lg text-title-lg text-primary flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined">trending_up</span> Trending Now
+                    </h3>
+<div class="space-y-4">
+<a class="block group" href="#">
+<p class="font-label-md text-secondary mb-1">#MentalHealth</p>
+<h4 class="font-body-lg font-semibold group-hover:text-primary transition-colors">Managing anxiety during the third trimester?</h4>
+<p class="text-label-md text-on-surface-variant mt-1">128 active discussions • 12m ago</p>
+</a>
+<div class="h-px bg-outline-variant opacity-30"></div>
+<a class="block group" href="#">
+<p class="font-label-md text-secondary mb-1">#Postpartum</p>
+<h4 class="font-body-lg font-semibold group-hover:text-primary transition-colors">Recovery tips after a C-section: What helped?</h4>
+<p class="text-label-md text-on-surface-variant mt-1">84 active discussions • 45m ago</p>
+</a>
+</div>
+</div>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed rounded-lg p-stack-md relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-title-lg text-title-lg mb-2">Our Safety Guarantee</h3>
+<p class="text-body-md opacity-80 mb-4">All profiles are identity-verified but display as anonymous handles to ensure your total privacy.</p>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full text-label-md flex items-center gap-2">
+                            Learn More <span class="material-symbols-outlined text-[18px]">verified_user</span>
+</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">shield_person</span>
+</div>
+</div>
+</div>
+<!-- Discussion Feed -->
+<div class="lg:col-span-8 space-y-stack-md order-1 lg:order-2">
+<!-- Create Post Anchor -->
+<div class="glass-card rounded-lg p-stack-md flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold">
+                        A
+                    </div>
+<button class="flex-1 text-left px-4 py-2.5 bg-surface-container rounded-full text-on-surface-variant font-body-md hover:bg-surface-container-high transition-colors">
+                        Share your thoughts anonymously...
+                    </button>
+<button class="material-symbols-outlined p-2 text-primary hover:bg-primary-container/20 rounded-full transition-colors">add_photo_alternate</button>
+</div>
+<!-- Feed Items -->
+<div class="space-y-stack-md">
+<!-- Post Card 1 -->
+<article class="glass-card rounded-lg p-stack-md hover:scale-[1.01] transition-transform duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container">person</span>
+</div>
+<div>
+<p class="font-body-md font-bold text-on-surface">AnonymousPuffin82</p>
+<p class="text-label-md text-on-surface-variant">2 hours ago in <span class="text-secondary">Postpartum</span></p>
+</div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant">more_vert</button>
+</div>
+<h3 class="font-title-lg text-title-lg mb-2">Feeling overwhelmed with breastfeeding - is this normal?</h3>
+<p class="text-body-lg text-on-surface-variant line-clamp-3 mb-4">
+                            It's been 5 days since we came home and I feel like I'm doing everything wrong. My baby won't latch properly and the nurses said it should be easy. I'm feeling really alone in this and I don't know who to talk to without being judged.
+                        </p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-label-md">24</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-label-md">12</span>
+</button>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full font-label-md active:scale-95 transition-transform">Join Discussion</button>
+</div>
+</article>
+<!-- Post Card 2 -->
+<article class="glass-card rounded-lg p-stack-md hover:scale-[1.01] transition-transform duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed">face_6</span>
+</div>
+<div>
+<p class="font-body-md font-bold text-on-surface">CaringWillow_7</p>
+<p class="text-label-md text-on-surface-variant">5 hours ago in <span class="text-secondary">Mental Health</span></p>
+</div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant">more_vert</button>
+</div>
+<h3 class="font-title-lg text-title-lg mb-2">Finding joy in the small wins today ✨</h3>
+<p class="text-body-lg text-on-surface-variant mb-4">
+                            Just wanted to share that I finally took a 10-minute walk by myself today. It's the first time in 3 weeks I felt like 'me'. To anyone struggling, it does get better.
+                        </p>
+<div class="rounded-lg overflow-hidden h-48 mb-4">
+<img class="w-full h-full object-cover" data-alt="A soft-focus, dreamy image of a peaceful garden path during golden hour, symbolizing hope and self-care. The lighting is warm and ethereal, using the Nurture brand's rose pink and soft lavender color palette to evoke calmness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2kGC9sVxNDie7xNQEiGIqAsTi3eUek7jXIilSirpHF0lFW5Mai7B_NcfjFePd1oLg21bQWe-r8veAIX5NeFPf9L3BDT8lk0f8UPxfuS4JyqBsnSJnIxM7r86XTWuooHEURgyyONuhwxA_Gr3ClIm6BTwdwlWiZveNcbnKJaJJneWJxN5CIB2aq7sVcaTkU8W3h7DP7jDR0xncstHoFsy5RQ6azK4yDsaSY3QZyFCJ91qxF5l3Q_kmVwv7mUTICqofHz0la-vwy5Y">
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-label-md">156</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-label-md">45</span>
+</button>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full font-label-md active:scale-95 transition-transform">Join Discussion</button>
+</div>
+</article>
+<!-- Post Card 3 (Question Style) -->
+<article class="glass-card rounded-lg p-stack-md border-l-4 border-secondary hover:scale-[1.01] transition-transform duration-300">
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-label-md font-bold">EXPERT REVIEWED</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">medical_services</span>
+</div>
+<div>
+<p class="font-body-md font-bold text-on-surface">Dr. Sarah (Nurture Advisor)</p>
+<p class="text-label-md text-on-surface-variant">8 hours ago • Clinical Guide</p>
+</div>
+</div>
+</div>
+<h3 class="font-title-lg text-title-lg mb-2">Understanding Postpartum Hormones: What to expect in week 2</h3>
+<p class="text-body-lg text-on-surface-variant line-clamp-2 mb-4">
+                            The "Baby Blues" are very real and biologically driven. Here's a quick guide on how to distinguish them from PPD and when to reach out for professional help.
+                        </p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="text-label-md">Saved by 230 users</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-label-md active:scale-95 transition-transform">Read Full Guide</button>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Bottom Spacer -->
+<div class="h-32"></div>
+</main>
+<!-- FAB for Create Post (Mobile only) -->
+<button class="md:hidden fixed bottom-24 right-6 w-14 h-14 bg-secondary text-on-secondary rounded-full shadow-lg flex items-center justify-center z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[32px]">edit</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface-container/90 dark:bg-surface-container-highest/90 backdrop-blur-xl z-50 rounded-t-lg shadow-[0_-4px_20px_rgba(248,187,208,0.3)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1.5 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1.5 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-md text-label-md">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-6 py-1.5" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Forum</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1.5 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1.5 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction Logic
+        document.querySelectorAll('article button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                if(button.querySelector('.material-symbols-outlined')?.textContent === 'favorite') {
+                    const icon = button.querySelector('.material-symbols-outlined');
+                    const span = button.querySelector('span:not(.material-symbols-outlined)');
+                    let count = parseInt(span.textContent);
+                    
+                    if(icon.style.fontVariationSettings.includes("'FILL' 1")) {
+                        icon.style.fontVariationSettings = "'FILL' 0";
+                        span.textContent = count - 1;
+                        button.classList.remove('text-secondary');
+                    } else {
+                        icon.style.fontVariationSettings = "'FILL' 1";
+                        span.textContent = count + 1;
+                        button.classList.add('text-secondary');
+                    }
+                }
+            });
+        });
+
+        // Sticky header opacity change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+                header.classList.replace('bg-surface/80', 'bg-surface/95');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.replace('bg-surface/95', 'bg-surface/80');
+            }
+        });
+    </script>
+</body></html>

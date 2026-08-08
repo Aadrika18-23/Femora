@@ -1,0 +1,327 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nurture | Health Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .glass-card {
+            background: rgba(255, 248, 250, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 20px rgba(248, 187, 208, 0.2);
+        }
+        .premium-shadow {
+            box-shadow: 0 4px 20px rgba(248, 187, 208, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #f8bbd0;
+            border-radius: 10px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#e2d8d9",
+                        "on-secondary-container": "#590025",
+                        "tertiary-fixed": "#e6e0ef",
+                        "secondary-fixed": "#ffd9df",
+                        "on-secondary-fixed-variant": "#8f003f",
+                        "primary": "#805062",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#fd4e87",
+                        "on-background": "#1f1a1c",
+                        "surface-bright": "#fff8f8",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#65394b",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#d4c2c6",
+                        "inverse-on-surface": "#f9eef0",
+                        "inverse-surface": "#342f30",
+                        "surface-variant": "#eae0e1",
+                        "error-container": "#ffdad6",
+                        "outline": "#827377",
+                        "on-tertiary-fixed": "#1c1a25",
+                        "tertiary": "#605d69",
+                        "on-primary": "#ffffff",
+                        "surface": "#fff8f8",
+                        "on-primary-container": "#76485a",
+                        "on-secondary-fixed": "#3f0018",
+                        "on-tertiary-container": "#575460",
+                        "surface-container": "#f6ebed",
+                        "inverse-primary": "#f2b6cb",
+                        "tertiary-container": "#cfc9d8",
+                        "secondary": "#b80f55",
+                        "on-tertiary-fixed-variant": "#484551",
+                        "on-surface": "#1f1a1c",
+                        "surface-container-high": "#f0e6e7",
+                        "primary-fixed": "#ffd9e4",
+                        "surface-container-highest": "#eae0e1",
+                        "tertiary-fixed-dim": "#c9c4d3",
+                        "on-primary-fixed": "#330f1f",
+                        "on-surface-variant": "#504447",
+                        "background": "#fff8f8",
+                        "primary-container": "#f8bbd0",
+                        "secondary-fixed-dim": "#ffb1c2",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#805062",
+                        "surface-container-low": "#fcf1f2",
+                        "primary-fixed-dim": "#f2b6cb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-padding-mobile": "16px",
+                        "stack-lg": "24px",
+                        "stack-md": "16px",
+                        "container-padding-desktop": "32px",
+                        "unit": "4px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "title-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                        "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm h-16">
+<div class="flex justify-between items-center px-gutter h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-3"><button class="material-symbols-outlined text-primary hover:bg-primary-container/30 p-2 rounded-full transition-colors" onclick="history.back()">arrow_back</button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a woman in her early 30s with a warm, friendly expression, set against a soft rose-tinted background. The lighting is bright and high-key, reflecting a clinical yet empathetic atmosphere consistent with a modern premium healthcare application. The image is crisp, clean, and uses a minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFPC-gWfja-V7fVp7q5ZqeIreCklBwlUIQ5u9HgVREhPJGbWwUB6at4bRm35f0c-nOlQaGVv6tizRRAZJfdfcWYxwFrfTig8x8PrXo68eZ5GLbq5HpZaJKLdnBV0LpvgPX2-4IDAlqD-O92ZSqDfDTuA-7M12P5CB6SfPFkJQPen0iiVnJEnIO63_ByCp_iaFH4NkakfKbd-XnwUJR5IfgC9Fg4mvQxxmFZwZ_367gnPNYzG-h5K94CQN4797h7L9D15eQYAFrMh0">
+</div>
+<h1 class="font-display-lg text-title-lg font-bold text-primary">Nurture</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity p-2">notifications</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 px-gutter max-w-screen-xl mx-auto space-y-stack-lg">
+<!-- Hero Section & Search -->
+<section class="space-y-stack-md">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Health Library</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Expert-verified resources tailored to your wellness journey.</p>
+<div class="relative group max-w-xl">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary-container transition-all text-on-surface font-body-md" placeholder="Search topics, symptoms, or articles..." type="text">
+</div>
+</section>
+<!-- Categories / Chips -->
+<div class="flex gap-stack-sm overflow-x-auto pb-2 custom-scrollbar">
+<button class="px-6 py-2 bg-secondary-container text-on-secondary-container rounded-full whitespace-nowrap font-label-md text-label-md hover:opacity-90 transition-all">All Topics</button>
+<button class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full whitespace-nowrap font-label-md text-label-md hover:bg-surface-container-high transition-all">Pregnancy</button>
+<button class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full whitespace-nowrap font-label-md text-label-md hover:bg-surface-container-high transition-all">Postpartum</button>
+<button class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full whitespace-nowrap font-label-md text-label-md hover:bg-surface-container-high transition-all">Mental Health</button>
+<button class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full whitespace-nowrap font-label-md text-label-md hover:bg-surface-container-high transition-all">Nutrition</button>
+<button class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full whitespace-nowrap font-label-md text-label-md hover:bg-surface-container-high transition-all">Vaccination</button>
+</div>
+<!-- Featured Articles Bento Grid -->
+<section class="space-y-stack-md">
+<div class="flex justify-between items-end">
+<h3 class="font-title-lg text-title-lg text-on-surface">Featured Articles</h3>
+<a class="text-secondary font-label-md text-label-md hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-md">
+<!-- Large Featured Card -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-lg bg-surface-container-high premium-shadow min-h-[400px] flex flex-col justify-end p-8">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A serene, high-quality photograph of an expectant mother practicing gentle yoga in a bright, sun-drenched minimalist living room. Soft pastel colors dominate the scene, with gentle pinks and whites creating a nurturing atmosphere. The lighting is diffused and warm, emphasizing safety and wellness. Professional healthcare editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIVEvyU5E9yyPlSz9_B6Lu43s-RjLVQabd3cXS2J5VJFABrJsqHTJQ99Qwj6QQUmu-zE_vzLsBE0lOT9MIOafeY4fXrkitjQVFtlEiT3935O83asv17A5qdE4X93A1_Qa2c2L4cH9QnF8TYcdAPN5olq5v05Zh4TInxg3yZ19cvGgS1y0DftxTMGE978Ryr4wqxTAwk9ExHEW5vRIoBwvAnWWT7Ed4iyqbYSKi-oPHKqfpQe93CJ1bM6pj3TnDDkuVlK6XJsQoJRc">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+</div>
+<div class="relative z-10 space-y-stack-sm">
+<div class="flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full w-fit">
+<span class="material-symbols-outlined text-[16px] text-white" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-white text-[12px] font-medium tracking-wide uppercase">Expert Verified</span>
+</div>
+<h4 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">Comprehensive Pregnancy Care: Your First Trimester Guide</h4>
+<p class="text-white/80 font-body-md line-clamp-2 max-w-xl">Everything you need to know about fetal development, nutrition, and common symptoms during the first 12 weeks of your journey.</p>
+<button class="mt-4 px-8 py-3 bg-secondary text-on-secondary rounded-full font-label-md text-label-md hover:scale-105 active:scale-95 transition-all">Read Article</button>
+</div>
+</div>
+<!-- Side Featured Cards -->
+<div class="md:col-span-4 flex flex-col gap-stack-md">
+<div class="glass-card flex-1 rounded-lg p-6 space-y-stack-sm group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-secondary font-label-md text-label-md">Nutrition</span>
+</div>
+<h5 class="font-title-lg text-title-lg text-on-surface leading-tight">Iron-Rich Foods for Maternal Vitality</h5>
+<p class="text-on-surface-variant text-body-md line-clamp-2">Combat fatigue with these expert-approved dietary additions for every stage.</p>
+</div>
+<div class="glass-card flex-1 rounded-lg p-6 space-y-stack-sm group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-secondary font-label-md text-label-md">Vaccination</span>
+</div>
+<h5 class="font-title-lg text-title-lg text-on-surface leading-tight">Childhood Immunization Schedule 2024</h5>
+<p class="text-on-surface-variant text-body-md line-clamp-2">A clear, updated guide to protecting your little one during their first two years.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Video Tutorials Section -->
+<section class="space-y-stack-md bg-surface-container-low -mx-gutter px-gutter py-stack-lg rounded-xl md:rounded-none">
+<div class="flex justify-between items-end max-w-screen-xl mx-auto w-full">
+<div class="space-y-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Video Tutorials</h3>
+<p class="text-on-surface-variant text-body-md">Visual guides for practical wellness and care.</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-white flex items-center justify-center premium-shadow">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</button>
+</div>
+<div class="flex gap-stack-md overflow-x-auto pb-4 custom-scrollbar max-w-screen-xl mx-auto w-full">
+<!-- Video Card 1 -->
+<div class="min-w-[280px] md:min-w-[340px] group cursor-pointer">
+<div class="relative aspect-video rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A high-quality frame from a video tutorial featuring a wellness coach in a calm, minimal studio setting. The coach is demonstrating gentle postpartum breathing exercises. The background is a soft lavender and white gradient. The lighting is professional and airy, reflecting a clean and modern healthcare aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnc2M5q4WE60ld7T7XkarVmA3ZFbEu4Dg8ibOcG3A7sPuBuYJZzF9UlD2lUvlr5ozdPIoPuU6GH5cbhDAd4mFpIzDXBLWiP8JykAU2tGAw-sJFLtoHOFUIAYcQabzeQj9u64wLa45-GbUn2m3l7Cy9CXB9vrzBPCl9Gp3aHHDkUMF5KZ1gLqaepjUMgl5PmpqPLVUbO4MnxKtG5PZqmaw-58Ihm7hsXIL8KmlPCtISr-guVlBENBKiUY4DBIqktFxMDBg8FVPTVf0">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-1 bg-black/60 rounded text-white text-[10px]">12:45</div>
+</div>
+<div class="mt-4 space-y-1">
+<h6 class="font-body-lg font-semibold text-on-surface">Postpartum Wellness: Core Restoration</h6>
+<p class="text-on-surface-variant text-label-md">8.2k Views • 15 mins</p>
+</div>
+</div>
+<!-- Video Card 2 -->
+<div class="min-w-[280px] md:min-w-[340px] group cursor-pointer">
+<div class="relative aspect-video rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A close-up high-definition shot from a healthcare tutorial showing a nurse demonstrating how to properly hold a newborn for breastfeeding. The setting is clean, clinical, yet warm and inviting with soft neutral tones. The lighting is bright and clear, emphasizing safety and care. Professional medical video production style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5QaBibW-W81-Rkyb-NhD80fHAb6slnuEQ4dusx_UjWW0KFr6c9J1av4pXzQKP6QaJVKYOPPD3XBLcazYtnMyozvk8hTeYI8QFmpzjZeWO-sy_fp3rxKW1-sSzopq-euXguokwW0a7jQvv1pip1Irbkd_tqMmwR2Hk-_Kxcf6z8VJOpbNhCmFs-3ZuQxzPl3tG4TkDn_U8ODSE-Faw3ileFDh640j-rZ2h6a7lG7u8GM1Klo4WZ4vqo-2KZqoiJ8PJGtJHbEGPO2o">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-1 bg-black/60 rounded text-white text-[10px]">08:30</div>
+</div>
+<div class="mt-4 space-y-1">
+<h6 class="font-body-lg font-semibold text-on-surface">Newborn Feeding Techniques</h6>
+<p class="text-on-surface-variant text-label-md">12k Views • 8 mins</p>
+</div>
+</div>
+<!-- Video Card 3 -->
+<div class="min-w-[280px] md:min-w-[340px] group cursor-pointer">
+<div class="relative aspect-video rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A clean and professional video thumbnail showing a nutritionist organizing healthy meal prep containers in a modern, sunlit kitchen. Vibrant vegetables in soft pink and green hues are visible. The aesthetic is extremely organized and serene, following the brand's 'Nurturing Precision' design philosophy. Soft-focus background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuIYGYsBukgyacm9Bp8y-F7DzVLF6rB9P_H1aQiVZoXJ5BTdj-PjUJmyJ9kzDNFyUVdpcnCnAoU0obbvyOyLUdy0e7J0rJ7iRRJBV5t2bKX6Iu0GJLhcj997iTJH-ZFsSN9MiXtjgPzEDqy9s5Fi0AT5-BS-MC2PQ8SYJtbIiv6n3Ut7iI0OvjqdgfZNoDUtEq18stZNLwfchAdWxcIutIqE36OkM-WCEKIJP5iD-Wvulzp99WhPRzbkghznhJZUYIq6dy9fXkBV8">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-1 bg-black/60 rounded text-white text-[10px]">22:15</div>
+</div>
+<div class="mt-4 space-y-1">
+<h6 class="font-body-lg font-semibold text-on-surface">Weekly Meal Prep for Expectant Moms</h6>
+<p class="text-on-surface-variant text-label-md">5.4k Views • 22 mins</p>
+</div>
+</div>
+</div>
+</section>
+<!-- More Resources (Asymmetric Layout) -->
+<section class="space-y-stack-md pt-stack-md">
+<h3 class="font-title-lg text-title-lg text-on-surface">Quick Resources</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-stack-md">
+<div class="p-6 rounded-lg bg-tertiary-container/30 border border-tertiary-container/50 hover:bg-tertiary-container/40 transition-colors cursor-pointer flex flex-col justify-between aspect-square hover:scale-105">
+<span class="material-symbols-outlined text-tertiary text-[40px]">menu_book</span>
+<div>
+<h6 class="font-body-lg font-bold text-on-surface">Library Guide</h6>
+<p class="text-label-md text-on-surface-variant">How to use our resources.</p>
+</div>
+</div>
+<div class="p-6 rounded-lg bg-primary-container/30 border border-primary-container/50 hover:bg-primary-container/40 transition-colors cursor-pointer flex flex-col justify-between aspect-square hover:scale-105">
+<span class="material-symbols-outlined text-primary text-[40px]">chat</span>
+<div>
+<h6 class="font-body-lg font-bold text-on-surface">Expert Q&amp;A</h6>
+<p class="text-label-md text-on-surface-variant">Ask our specialists.</p>
+</div>
+</div>
+<div class="p-6 rounded-lg bg-surface-container border border-outline-variant hover:bg-surface-container-high transition-colors cursor-pointer flex flex-col justify-between aspect-square hover:scale-105">
+<span class="material-symbols-outlined text-outline text-[40px]">download</span>
+<div>
+<h6 class="font-body-lg font-bold text-on-surface">Health Checklist</h6>
+<p class="text-label-md text-on-surface-variant">Printable PDF guides.</p>
+</div>
+</div>
+<div class="p-6 rounded-lg bg-secondary-fixed/30 border border-secondary-fixed/50 hover:bg-secondary-fixed/40 transition-colors cursor-pointer flex flex-col justify-between aspect-square hover:scale-105">
+<span class="material-symbols-outlined text-secondary text-[40px]">event</span>
+<div>
+<h6 class="font-body-lg font-bold text-on-surface">Wellness Webinars</h6>
+<p class="text-label-md text-on-surface-variant">Live sessions monthly.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface-container/90 backdrop-blur-xl z-50 rounded-t-lg shadow-[0_-4px_20px_rgba(248,187,208,0.3)]"><a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-secondary-container/50 transition-colors rounded-full" href="#" onclick="window.location.href='{{DATA:SCREEN:SCREEN_72}}'"><span class="material-symbols-outlined">home</span><span class="font-label-md text-label-md">Home</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-secondary-container/50 transition-colors rounded-full" href="#" onclick="window.location.href='{{DATA:SCREEN:SCREEN_71}}'"><span class="material-symbols-outlined">auto_awesome</span><span class="font-label-md text-label-md">Eera AI</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-secondary-container/50 transition-colors rounded-full" href="#" onclick="window.location.href='{{DATA:SCREEN:SCREEN_70}}'"><span class="material-symbols-outlined">group</span><span class="font-label-md text-label-md">Community</span></a><a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1.5" href="#" onclick="window.location.href='{{DATA:SCREEN:SCREEN_69}}'"><span class="material-symbols-outlined">menu_book</span><span class="font-label-md text-label-md">Library</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:bg-secondary-container/50 transition-colors rounded-full" href="#" onclick="window.location.href='{{DATA:SCREEN:SCREEN_9}}'"><span class="material-symbols-outlined">person</span><span class="font-label-md text-label-md">Profile</span></a></nav>
+<script>
+        // Simple Micro-interaction for the search bar
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('premium-shadow');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('premium-shadow');
+        });
+
+        // Horizontal scroll with mouse wheel for video section
+        const videoScroll = document.querySelector('.custom-scrollbar');
+        videoScroll.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            videoScroll.scrollLeft += evt.deltaY;
+        });
+    </script>
+
+
+</body></html>
